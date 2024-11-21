@@ -1,1 +1,1 @@
-# mc-forge-1.20.1-fluid-spicy_lava_learning
+# mc-forge-1.20.1-spicy_lava
