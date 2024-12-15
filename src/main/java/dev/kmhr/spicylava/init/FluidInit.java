@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.*;
@@ -61,8 +60,8 @@ public class FluidInit {
                         @Override
                         public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                             consumer.accept(new IClientFluidTypeExtensions() {
-                                private static final ResourceLocation STILL = new ResourceLocation("block/lava_still"),
-                                        FLOW = new ResourceLocation("block/lava_flow"),
+                                private static final ResourceLocation STILL = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_still"), // new ResourceLocation("spicylava:fluid/lava_spicy_still"),
+                                        FLOW = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_flow"),
                                         OVERLAY = new ResourceLocation("block/basalt_side"),
                                         VIEW_OVERLAY = new ResourceLocation("textures/block/basalt_side.png");
 
