@@ -29,8 +29,6 @@ import java.util.function.Consumer;
 public class FluidInit {
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, SpicyLava.MODID);
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, SpicyLava.MODID);
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SpicyLava.MODID);
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SpicyLava.MODID);
 
 
 
@@ -136,7 +134,7 @@ public class FluidInit {
             new ForgeFlowingFluid.Source(fluidProperties()));
     public static final RegistryObject<Fluid> LAVA_SPICY_FLOWING = FLUIDS.register("lava_spicy_flowing", () ->
             new ForgeFlowingFluid.Flowing(fluidProperties()));
-    public static final RegistryObject<LiquidBlock> LAVA_SPICY_BLOCK = BLOCKS.register("lava_spicy_block", () ->
+    public static final RegistryObject<LiquidBlock> LAVA_SPICY_BLOCK = BlockInit.BLOCKS.register("lava_spicy_block", () ->
             new LiquidBlock(LAVA_SPICY, BlockBehaviour.Properties.of()
                     .mapColor(MapColor.FIRE)
                     .replaceable()
@@ -144,11 +142,7 @@ public class FluidInit {
                     .lightLevel(state -> 15)
                     .pushReaction(PushReaction.DESTROY)
             ));
-    public static final RegistryObject<Item> LAVA_SPICY_BUCKET = ITEMS.register("lava_spicy_bucket", () ->
+    public static final RegistryObject<Item> LAVA_SPICY_BUCKET = ItemInit.ITEMS.register("lava_spicy_bucket", () ->
             new BucketItem(LAVA_SPICY, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
-    public FluidTypeTest()
-    {
-
-    }
 }
