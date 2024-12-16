@@ -3,8 +3,6 @@
   "fluid": "spicylava:lava_spicy",
   "loader": "forge:fluid_container",
   "textures": {
-    "base": "minecraft:item/bucket",
-    "fluid": "spicylava:item/lava_spicy_bucket_drip_fluid",
-    "cover": "spicylava:item/lava_spicy_bucket_drip_cover"
+    "base": "spicylava:item/lava_spicy_bucket_drip"
   }
 }
