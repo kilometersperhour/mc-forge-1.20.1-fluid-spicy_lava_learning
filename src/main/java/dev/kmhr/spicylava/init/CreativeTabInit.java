@@ -21,7 +21,7 @@ public class CreativeTabInit {
     public static final RegistryObject<CreativeModeTab> SPICYLAVA_TAB = TABS.register("spicylava_tab",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.spicylava_tab"))
-                    .icon(ItemInit.STICK_TOASTING.get()::getDefaultInstance) // uses "method reference", like a supplier? can also pass instead () -> new ItemStack(ItemInit.STICK_TOASTING.get())
+                    .icon(ItemInit.LAVA_SPICY_BUCKET.get()::getDefaultInstance) // uses "method reference", like a supplier? can also pass instead () -> new ItemStack(ItemInit.STICK_TOASTING.get())
                     .displayItems((displayParameters, output) ->
                         SPICYLAVA_TAB_ITEMS.forEach(itemLike -> output.accept(itemLike.get())))
                     .build()
