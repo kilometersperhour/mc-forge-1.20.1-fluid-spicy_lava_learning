@@ -60,10 +60,17 @@ public class FluidInit {
                         @Override
                         public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                             consumer.accept(new IClientFluidTypeExtensions() {
-                                private static final ResourceLocation STILL = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_still"), // new ResourceLocation("spicylava:fluid/lava_spicy_still"),
-                                        FLOW = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_flow"),
-                                        OVERLAY = new ResourceLocation("block/basalt_side"),
+                                /*
+                                private static final ResourceLocation STILL = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_still.png"), // new ResourceLocation("spicylava:fluid/lava_spicy_still"),
+
+                                        FLOW = new ResourceLocation(SpicyLava.MODID,"fluid/lava_spicy_flow.png"),
+                                        OVERLAY = new ResourceLocation("block/basalt_side.png"),
                                         VIEW_OVERLAY = new ResourceLocation("textures/block/basalt_side.png");
+                                */
+                                private static final ResourceLocation STILL = new ResourceLocation(SpicyLava.MODID,"textures/block/lava_spicy"),
+                                        FLOW = new ResourceLocation(SpicyLava.MODID,"textures/block/lava_spicy"),
+                                        OVERLAY = new ResourceLocation("block/basalt_side"),
+                                        VIEW_OVERLAY = new ResourceLocation("textures/block/obsidian.png");
 
                                 @Override
                                 public ResourceLocation getStillTexture() {
@@ -128,7 +135,6 @@ public class FluidInit {
                             });
                         }
                     });
-
     public static final RegistryObject<FlowingFluid> LAVA_SPICY = FLUIDS.register("lava_spicy", () ->
             new ForgeFlowingFluid.Source(fluidProperties()));
     public static final RegistryObject<Fluid> LAVA_SPICY_FLOWING = FLUIDS.register("lava_spicy_flowing", () ->
@@ -141,7 +147,14 @@ public class FluidInit {
                     .lightLevel(state -> 15)
                     .pushReaction(PushReaction.DESTROY)
             ));
-    public static final RegistryObject<Item> LAVA_SPICY_BUCKET = ItemInit.ITEMS.register("lava_spicy_bucket", () ->
-            new BucketItem(LAVA_SPICY, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final RegistryObject<Item> LAVA_SPICY_BUCKET = ItemInit.ITEMS.register(
+            "lava_spicy_bucket",
+            () -> new BucketItem(
+                    LAVA_SPICY,
+                    new Item.Properties()
+                            .craftRemainder(Items.BUCKET)
+                            .stacksTo(1)
+            )
+    );
 
 }

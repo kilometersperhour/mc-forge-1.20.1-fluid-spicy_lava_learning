@@ -15,11 +15,11 @@ public class BlockInit {
     public static final RegistryObject<Block> MARSHMALLOW_BLOCK = BLOCKS.register("marshmallow_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.SLIME_BLOCK)
                     .ignitedByLava()
-                    .jumpFactor(2f)
+                    //.jumpFactor(2f)
                     .mapColor(MapColor.SNOW)
-                    .friction(0.1f)
+                    //.friction(0.1f)
                     .strength(5.0f)
-                    .lightLevel(state -> 7) // why not!
+                    //.lightLevel(state -> 7) // why not!
                     .explosionResistance(2.0f)
             )
     );

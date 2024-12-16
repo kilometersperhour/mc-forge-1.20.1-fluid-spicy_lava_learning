@@ -1,5 +1,10 @@
 {
-  "parent": "forge:item/bucket_drip",
+  "parent": "forge:item/bucket",
+  "fluid": "spicylava:lava_spicy",
   "loader": "forge:fluid_container",
-  "fluid": "spicylava:lava_spicy"
+  "textures": {
+    "base": "minecraft:item/bucket",
+    "fluid": "spicylava:item/lava_spicy_bucket_drip_fluid",
+    "cover": "spicylava:item/lava_spicy_bucket_drip_cover"
+  }
 }
