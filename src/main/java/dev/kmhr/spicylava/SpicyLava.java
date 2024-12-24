@@ -36,23 +36,7 @@ public class SpicyLava {
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        // Add Interactions for sources
-        /*
-        // ANY Spicy Lava over ANY Lava makes Gold Block
-        FluidInteractionRegistry.addInteraction(
-                FluidInit.LAVA_SPICY_TYPE.get(),
-                new FluidInteractionRegistry
-                        .InteractionInformation(
-                        ForgeMod.LAVA_TYPE.get(),
-                        Blocks.GOLD_BLOCK.defaultBlockState()));
-        // Source Water + Spicy Lava = Diamond Block, Flowing Water + Spicy Lava = Iron Block
-        FluidInteractionRegistry.addInteraction(
-                ForgeMod.WATER_TYPE.get(),
-                new FluidInteractionRegistry.
-                        InteractionInformation(
-                        FluidInit.LAVA_SPICY_TYPE.get(),
-                        state -> state.isSource() ? Blocks.DIAMOND_BLOCK.defaultBlockState() : Blocks.IRON_BLOCK.defaultBlockState()));
-        */
+        // Add Interactions for source
 
         // Original list of blocks to convert:
         // https://github.com/CoFH/ThermalFoundation-1.12-Legacy/blob/4f088d82a8e6fbd767cd4bc7d0c3428888a6ff2f/src/main/java/cofh/thermalfoundation/fluid/BlockFluidPyrotheum.java#L171
@@ -60,9 +44,18 @@ public class SpicyLava {
         FluidInteractionRegistry.addInteraction(FluidInit.LAVA_SPICY_TYPE.get(),
                 new FluidInteractionRegistry
                         .InteractionInformation(
-                                ForgeMod.WATER_TYPE.get(),
-                                Blocks.STONE.defaultBlockState()
-                        )
+                        ForgeMod.WATER_TYPE.get(),
+                        Blocks.STONE.defaultBlockState()
+                )
         );
+        // See sources for FluidInteractionRegistry for the entry that creates Blocks.BASALT for more
+        // todo use immersive weather's mixin for block spawner to add proper type of generation
+        FluidInteractionRegistry.addInteraction(FluidInit.LAVA_SPICY_TYPE.get(),
+            new FluidInteractionRegistry
+                    .InteractionInformation(
+                    (level, currentPos, relativePos, currentState) -> level.getBlockState(relativePos).is(Blocks.SAND),
+                    Blocks.GLASS.defaultBlockState()
+            )
+    );
     }
 }

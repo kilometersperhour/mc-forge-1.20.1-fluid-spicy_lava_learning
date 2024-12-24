@@ -23,4 +23,6 @@ public class BlockInit {
                     .lightLevel(state -> 15)
                     .pushReaction(PushReaction.DESTROY)
             ));
+
+
 }
